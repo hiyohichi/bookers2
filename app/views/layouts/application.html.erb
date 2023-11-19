@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--FontAwesomeの導入-->
+    <script src="https://kit.fontawesome.com/c6b38ceb92.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar_expand_lg navbar_dark bg_dark">
+        <div class="container">
+          <a class="navbar-brand p-3" href="/">
+            <span>Bookers</span>
+          </a>
+          <button class="navbar_toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                       aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse " id="navbarNavDropdown" >
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+              <li>
+                <%=link_to root_path do %>
+                <i class="fas fa-home"></i>"Home"
+                <%end%>
+              </li>
+              <%end%>
+               <li>
+                <%=link_to root_path do %>
+                <i class="fas fa-home"></i>"Home"
+                <%end%>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
