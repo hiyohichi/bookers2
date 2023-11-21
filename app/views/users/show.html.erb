@@ -4,7 +4,7 @@
     <div class="col-md-3">
       <h2>User info</h2>
       <div>
-        <% image_tag @user.get_profile_image(100,100) %>
+        <%= image_tag @user.get_profile_image(100,100) %>
       </div>
 
       <table>
@@ -29,7 +29,7 @@
         <h4>Opinion</h4>
         <%= f.text_area :body %>
         <%= f.submit "Create Book",class: "btn btn-success" %>
-      <%end%> 
+      <%end%>
 
     </div>
   </div>
