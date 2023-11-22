@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @users=User.all
     @user=User.find(current_user.id)
     @book=Book.new
+    @books=Book.all
   end
 
   def show

@@ -2,5 +2,30 @@
 <div class="container px-5 px-sm-0">
   <div class='row'>
     <%=render 'books/list',book: @book, user: @user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag @user.get_profile_image(80,80) %></td>
+            <td><%= @user.name %></td>
+            <td>
+              <%=link_to user_path(@user.id) do %>
+              show
+              <%end%>
+            </td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

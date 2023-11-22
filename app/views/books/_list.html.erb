@@ -25,8 +25,8 @@
         <%= f.text_field :title %>
         <h4>Opinion</h4>
         <%= f.text_area :body %>
-        <%= link_to book_path(current_user.id) do %>
-          <%= f.submit "Create Book",class: "btn btn-success" %>
-        <%end%>
+
+        <%= f.submit "Create Book",class: "btn btn-success" %>
+
       <%end%>
   </div>
