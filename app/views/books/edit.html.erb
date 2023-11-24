@@ -1,5 +1,5 @@
 
-<h1>Books#edit</h1>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -15,7 +15,7 @@
         </ul>
       <%end%>
       </div>
-      
+
       <%= form_with model: @book do |f| %>
       <div>
         <label for="inputTitle">Title</label>
@@ -32,7 +32,7 @@
       <%= link_to book_path do %>
       show
       <%end%>
-       | 
+       |
        <%= link_to books_path do %>
       back
       <%end%>
