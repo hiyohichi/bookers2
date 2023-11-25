@@ -24,12 +24,12 @@
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag book.user.get_profile_image(80,80) %></td>
-            <td><%= book.user.name %></td>
+            <td><%= image_tag user.get_profile_image(80,80) %></td>
+            <td><%= user.name %></td>
             <td>
-              <%=link_to user_path(book.user.id) do %>
+              <%=link_to user_path(user.id) do %>
               Show
               <%end%>
             </td>
