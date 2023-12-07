@@ -28,6 +28,8 @@ class BooksController < ApplicationController
     @book_new=Book.new
     @user=@book.user
     @books=@user.books.all
+    @book_comment=BookComment.new
+    @book_comments=BookComment.all
   end
 
   def edit
