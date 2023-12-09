@@ -45,7 +45,7 @@ group :development do
 end
 
 group :test do
-  
+
   gem 'capybara', '>= 2.15'
     gem 'rspec-rails'
     gem "factory_bot_rails"
@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'net-smtp'
+gem 'jquery-rails'

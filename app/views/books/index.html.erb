@@ -38,7 +38,7 @@
             </td>
             <td><%= book.body %></td>
             <!--いいね機能-->
-            <td><%= render 'iine', book: book %></td>
+            <td id="favorite_buttons_<%= book.id %>"><%= render 'iine', book: book %></td>
             <td>コメント数: <%= book.book_comments.count %></td>
           </tr>
           <%end%>
