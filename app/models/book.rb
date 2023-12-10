@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :favorites,dependent: :destroy
+  #favoritesテーブルを介してUserモデルのコレクションを取得する
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :book_comments,dependent: :destroy
 
   def favorited_by?(user)
