@@ -12,31 +12,10 @@
 
 <div class="container px-5 px-sm-0">
   <div class='row'>
-    <%=render 'books/list',book: @book, user: @user %>
+    <%=render 'books/list',book: @book, user: current_user %>
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>name</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= image_tag user.get_profile_image(80,80) %></td>
-            <td><%= user.name %></td>
-            <td>
-              <%=link_to user_path(user.id) do %>
-              Show
-              <%end%>
-            </td>
-          </tr>
-          <%end%>
-        </tbody>
-      </table>
+      <%= render 'index',users: @users %>
     </div>
   </div>
 </div>
