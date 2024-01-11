@@ -13,6 +13,9 @@ class User < ApplicationRecord
   #一覧画面で使う
   has_many :followings, through: :to_follow, source: :followed
   has_many :followers, through: :be_followed, source: :follower
+  #DM機能
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 
 
   validates :name,length: {in:2..20}, uniqueness: true
