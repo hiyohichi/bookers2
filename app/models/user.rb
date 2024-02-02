@@ -16,10 +16,12 @@ class User < ApplicationRecord
   #DM機能
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  #閲覧数カウント
+  has_many :read_counts, dependent: :destroy
 
 
   validates :name,length: {in:2..20}, uniqueness: true
-  validates :introduction,length: {maximum:50}
+  validates :introduction,length: {maximum:400}
 
   has_one_attached :profile_image
 

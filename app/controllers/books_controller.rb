@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
   def new
     @book=Book.new
   end
@@ -36,6 +37,10 @@ class BooksController < ApplicationController
     @books=@user.books.all
     @book_comment=BookComment.new
     @book_comments=BookComment.all
+    #閲覧数カウント
+    unless ReadCount.find_by(user_id: current_user.id, book_id: @book.id)
+      current_user.read_counts.create(book_id: @book.id)
+    end
   end
 
   def edit
