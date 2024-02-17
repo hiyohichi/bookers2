@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   #閲覧数カウント
   has_many :read_counts, dependent: :destroy
+  #通知機能
+  has_many :notifications, dependent: :destroy
 
 
   validates :name,length: {in:2..20}, uniqueness: true

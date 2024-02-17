@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_02_074320) do
+ActiveRecord::Schema.define(version: 2024_02_17_064052) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(version: 2024_02_02_074320) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "subject_type"
+    t.integer "subject_id"
+    t.integer "user_id"
+    t.integer "action_type", null: false
+    t.boolean "checked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_type", "subject_id"], name: "index_notifications_on_subject"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "read_counts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "book_id", null: false
@@ -125,6 +137,7 @@ ActiveRecord::Schema.define(version: 2024_02_02_074320) do
   add_foreign_key "entries", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "read_counts", "books"
   add_foreign_key "read_counts", "users"
   add_foreign_key "rooms", "users"

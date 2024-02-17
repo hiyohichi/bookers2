@@ -6,6 +6,8 @@ class Book < ApplicationRecord
   has_many :book_comments,dependent: :destroy
   #閲覧数カウント
   has_many :read_counts, dependent: :destroy
+  
+  has_one :notification, as: :subject, dependent: :destroy
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
