@@ -27,6 +27,12 @@
           <div class="navbar-collapse collapse " id="navbarNavDropdown" >
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
+              <!--通知機能-->
+              <li>
+                <%= link_to notifications_path, class: "nav-link text-light" do %>
+                <i class="fas fa-bell"></i>通知
+                <% end %>
+              </li>
               <li>
                 <%=link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                 <i class="fas fa-home"></i>Home
